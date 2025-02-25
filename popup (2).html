@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trading Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="calculator" class="calculator">
+        <div id="dragHandle" class="drag-handle">
+            Trading Calculator
+            <button id="closeBtn" class="close-btn">&times;</button>
+        </div>
+
+        <div class="content">
+            <div class="amount-buttons">
+                <button data-amount="250">$250</button>
+                <button data-amount="500">$500</button>
+                <button data-amount="1000">$1000</button>
+                <button data-amount="1500">$1500</button>
+                <button data-amount="2000">$2000</button>
+                <button data-amount="5000">$5000</button>
+                <button data-amount="10000">$10000</button>
+            </div>
+
+            <div class="input-group">
+                <label for="sharePrice">Share Price ($):</label>
+                <input type="number" id="sharePrice" step="0.01" min="0.01">
+            </div>
+
+            <div class="stop-loss-presets">
+                <label>Stop Loss Presets:</label>
+                <button data-sl-percent="5">5%</button>
+                <button data-sl-percent="10" class="active">10%</button>
+            </div>
+
+            <div class="results">
+                <div class="result-item">
+                    <label>Max Shares:</label>
+                    <span id="maxShares">0</span>
+                </div>
+                <div class="result-item">
+                    <label>TP1 Quantity:</label>
+                    <span id="tp1Quantity">0</span>
+                </div>
+                <div class="result-item">
+                    <label>TP2 Quantity:</label>
+                    <span id="tp2Quantity">0</span>
+                </div>
+                <div class="result-item">
+                    <label>TP3 Quantity:</label>
+                    <span id="tp3Quantity">0</span>
+                </div>
+                <div class="result-item">
+                    <label>Stop Loss:</label>
+                    <span id="stopLoss">$0.00</span>
+                </div>
+                <div class="result-item">
+                    <label>Take Profit 1 (+10%):</label>
+                    <span id="takeProfit1">$0.00</span>
+                </div>
+                <div class="result-item">
+                    <label>Take Profit 2 (+20%):</label>
+                    <span id="takeProfit2">$0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="content.js"></script>
+</body>
+</html>
