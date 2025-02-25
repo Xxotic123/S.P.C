@@ -6,47 +6,48 @@
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
+<html>\
 <head>\
-  <meta charset="UTF-8">\
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-  <title>Share Price Calculator</title>\
-  <link rel="stylesheet" href="style.css">\
+    <title>Stock Purchase Calculator</title>\
+    <script type="text/javascript">\
+        function calculateShares() \{\
+            var sharePrice = parseFloat(document.getElementById("sharePrice").value);\
+            if (isNaN(sharePrice) || sharePrice <= 0) \{\
+                alert("Please enter a valid share price.");\
+                return;\
+            \}\
+\
+            var amounts = [250, 500, 1000, 1500, 2000];\
+            var output = "";\
+\
+            amounts.forEach(function(amount) \{\
+                var shares = Math.floor(amount / sharePrice);\
+                var tp1Quantity = Math.floor(shares / 2);\
+                var tp2Quantity = Math.floor(tp1Quantity / 4);\
+                var stopLossPrice = (sharePrice * 0.9).toFixed(2);\
+                var takeProfit1 = (sharePrice * 1.1).toFixed(2);\
+                var takeProfit2 = (sharePrice * 1.2).toFixed(2);\
+\
+                output += "<h3>Amount: $" + amount + "</h3>";\
+                output += "<p>Shares: " + shares + "</p>";\
+                output += "<p>TP1 Quantity: " + tp1Quantity + "</p>";\
+                output += "<p>TP2 Quantity: " + tp2Quantity + "</p>";\
+                output += "<p>Stop Loss Price: $" + stopLossPrice + "</p>";\
+                output += "<p>Take Profit 1: $" + takeProfit1 + "</p>";\
+                output += "<p>Take Profit 2: $" + takeProfit2 + "</p>";\
+                output += "<hr/>";\
+            \});\
+\
+            document.getElementById("output").innerHTML = output;\
+        \}\
+    </script>\
 </head>\
 <body>\
-  <div class="container">\
-    <h1>Share Price Calculator</h1>\
-\
-    <!-- Dollar Amount Dropdown -->\
-    <label for="amountInput">Select Amount to Invest:</label>\
-    <select id="amountInput">\
-      <option value="250">$250</option>\
-      <option value="500">$500</option>\
-      <option value="1000">$1000</option>\
-      <option value="1500">$1500</option>\
-      <option value="2000">$2000</option>\
-    </select>\
-\
-    <!-- Share Price Input -->\
-    <label for="priceInput">Stock Price:</label>\
-    <input type="number" id="priceInput" placeholder="Enter stock price" step="0.01" min="0">\
-\
-    <!-- Calculate Button -->\
-    <button id="calculateButton">Calculate</button>\
-\
-    <!-- Output Results -->\
-    <div id="resultContainer">\
-      <p>Shares to Purchase: <span id="sharesCount">0</span></p>\
-      <p>TP1 Quantity: <span id="tp1Quantity">0</span></p>\
-      <p>TP2 Quantity: <span id="tp2Quantity">0</span></p>\
-      <p>TP3 Quantity: <span id="tp3Quantity">0</span></p>\
-      <p>Stop Loss Price: <span id="stopLossPrice">0</span></p>\
-      <p>Take Profit 1 (10%): <span id="takeProfit1">0</span></p>\
-      <p>Take Profit 2 (20%): <span id="takeProfit2">0</span></p>\
-    </div>\
-  </div>\
-\
-  <script src="script.js"></script>\
+    <h1>Stock Purchase Calculator</h1>\
+    <label for="sharePrice">Share Price:</label>\
+    <input type="number" id="sharePrice" name="sharePrice" step="0.01" required>\
+    <button onclick="calculateShares()">Calculate</button>\
+    <div id="output"></div>\
 </body>\
 </html>\
 }
