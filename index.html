@@ -1,0 +1,52 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en">\
+<head>\
+  <meta charset="UTF-8">\
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+  <title>Share Price Calculator</title>\
+  <link rel="stylesheet" href="style.css">\
+</head>\
+<body>\
+  <div class="container">\
+    <h1>Share Price Calculator</h1>\
+\
+    <!-- Dollar Amount Dropdown -->\
+    <label for="amountInput">Select Amount to Invest:</label>\
+    <select id="amountInput">\
+      <option value="250">$250</option>\
+      <option value="500">$500</option>\
+      <option value="1000">$1000</option>\
+      <option value="1500">$1500</option>\
+      <option value="2000">$2000</option>\
+    </select>\
+\
+    <!-- Share Price Input -->\
+    <label for="priceInput">Stock Price:</label>\
+    <input type="number" id="priceInput" placeholder="Enter stock price" step="0.01" min="0">\
+\
+    <!-- Calculate Button -->\
+    <button id="calculateButton">Calculate</button>\
+\
+    <!-- Output Results -->\
+    <div id="resultContainer">\
+      <p>Shares to Purchase: <span id="sharesCount">0</span></p>\
+      <p>TP1 Quantity: <span id="tp1Quantity">0</span></p>\
+      <p>TP2 Quantity: <span id="tp2Quantity">0</span></p>\
+      <p>TP3 Quantity: <span id="tp3Quantity">0</span></p>\
+      <p>Stop Loss Price: <span id="stopLossPrice">0</span></p>\
+      <p>Take Profit 1 (10%): <span id="takeProfit1">0</span></p>\
+      <p>Take Profit 2 (20%): <span id="takeProfit2">0</span></p>\
+    </div>\
+  </div>\
+\
+  <script src="script.js"></script>\
+</body>\
+</html>\
+}
